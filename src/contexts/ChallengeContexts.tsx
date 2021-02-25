@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from 'react';
+import { createContext, ReactNode, useState, useEffect } from 'react';
 import challenges from '../../challenges.json';
 
 interface challenge {
@@ -14,8 +14,9 @@ interface ChallengesContextData {
   currentExperience: number;
   challengesCompleted: Number;
   activeChallenge: challenge;
-  resetChallenge:()=>void;
-  experienceTonextLevel:number;
+  resetChallenge: () => void;
+  experienceTonextLevel: number;
+  completeChallenge: () => void;
 }
 
 interface ChallengesProviderProps {
@@ -31,8 +32,12 @@ export function ChallengesProvider({ children }: ChallengesProviderProps) {
 
   const [activeChallenge, setActiveChallenge] = useState(null);
 
-  const experienceTonextLevel = Math.pow((level + 1)*4, 2)
-  
+  const experienceTonextLevel = Math.pow((level + 1) * 4, 2);
+
+  useEffect(() => {
+    Notification.requestPermission();
+  }, []);
+
   function levelUp() {
     setLevel(level + 1);
   }
@@ -41,10 +46,33 @@ export function ChallengesProvider({ children }: ChallengesProviderProps) {
     const randomChallenges = Math.floor(Math.random() * challenges.length);
     const challenge = challenges[randomChallenges];
     setActiveChallenge(challenge);
+
+    if(Notification.permission === 'granted'){
+      new Notification('Novo desafio 🎉',{
+        body:`Valendo ${challenge.amount}xp!`
+      })
+    }
   }
 
   function resetChallenge() {
     setActiveChallenge(null);
+  }
+
+  function completeChallenge() {
+    if (!activeChallenge) {
+      return;
+    }
+    const { amount } = activeChallenge;
+
+    let finalExperience = currentExperience + amount;
+
+    if (finalExperience >= experienceTonextLevel) {
+      finalExperience = finalExperience - experienceTonextLevel;
+      levelUp();
+    }
+    setCurrentExperience(finalExperience);
+    setActiveChallenge(null);
+    setChallengesCompleted(challengesCompleted + 1);
   }
 
   return (
@@ -58,7 +86,7 @@ export function ChallengesProvider({ children }: ChallengesProviderProps) {
         activeChallenge,
         resetChallenge,
         experienceTonextLevel,
-        
+        completeChallenge,
       }}
     >
       {children}
