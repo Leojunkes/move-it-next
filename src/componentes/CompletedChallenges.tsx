@@ -1,4 +1,4 @@
-import { EFAULT } from "constants";
+
 
 import styles from '../styles/components/CompletedChalenge.module.css';
 
