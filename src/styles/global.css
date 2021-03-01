@@ -35,6 +35,7 @@ body{
     background:var(--background);
     color:var(--text);
     
+    
 }
 body, input, textarea, button{
     font:400 1rem "inter", sans-serif;

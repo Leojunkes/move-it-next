@@ -1,0 +1,15 @@
+.containerHeaderTheme{
+    background: var(--blue);
+    height: 100%;
+    color: var(--white);
+    
+}
+
+.containerHeaderTheme p{
+    margin: 10px 0 0 15px;
+}
+.switchTheme{
+    position:absolute;
+    right: 15rem;
+    top: 3rem;
+}

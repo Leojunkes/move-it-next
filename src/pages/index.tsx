@@ -1,3 +1,4 @@
+import React,{useState} from 'react';
 import ExperienceBar from '../componentes/ExperienceBar';
 import { GetServerSideProps } from 'next';
 import { ChallengesProvider } from '../contexts/ChallengeContexts';
@@ -8,6 +9,13 @@ import { Countdown } from '../componentes/Countdown';
 import { CountdownProvider } from '../contexts/CoutndownContext';
 import Head from 'next/head';
 import { ChallengeBox } from '../componentes/ChallengeBox';
+import Header from '../componentes/HeaderTheme';
+
+import {ThemeProvider} from 'styled-components';
+
+
+import light from '../styles/themes/light';
+import dark from '../styles/themes/dark';
 
 interface HomeProps {
   level: number;
@@ -17,7 +25,13 @@ interface HomeProps {
 
 export default function Home(props:HomeProps) {
   
+
+  const toogleTheme = ()=>{
+    
+  }
+  
   return (
+    <ThemeProvider theme={light}>
     <ChallengesProvider
       level={props.level}
       currentExperience={props.currentExperience}
@@ -27,6 +41,7 @@ export default function Home(props:HomeProps) {
         <Head>
           <title>Início | move-it</title>
         </Head>
+        <Header toggleTheme={toogleTheme} />
         <ExperienceBar />
         <CountdownProvider>
           <section>
@@ -42,6 +57,7 @@ export default function Home(props:HomeProps) {
         </CountdownProvider>
       </div>
     </ChallengesProvider>
+    </ThemeProvider>
   );
 }
 
