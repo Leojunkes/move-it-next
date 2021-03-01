@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
-import styles from '../styles/components/HeaderTheme.module.css';
+
 import Switch from 'react-switch';
 import { ThemeContext } from 'styled-components';
+import { Container } from './styles';
 
 interface HeaderProps {
   toggleTheme(): void;
@@ -11,9 +12,9 @@ export default function Header(props: HeaderProps) {
   const { colors, title } = useContext(ThemeContext);
 
   return (
-    <div className={styles.containerHeaderTheme}>
+    <Container>
       <p>Leonardo</p>
-      <div className={styles.switchTheme}>
+      <div>
         <Switch
           onChange={props.toggleTheme}
           checked={title === 'dark'}
@@ -24,6 +25,6 @@ export default function Header(props: HeaderProps) {
           onColor={colors.secundary}
         />
       </div>
-    </div>
+    </Container>
   );
 }

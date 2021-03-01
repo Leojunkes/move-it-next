@@ -9,7 +9,7 @@ import { Countdown } from '../componentes/Countdown';
 import { CountdownProvider } from '../contexts/CoutndownContext';
 import Head from 'next/head';
 import { ChallengeBox } from '../componentes/ChallengeBox';
-import Header from '../componentes/HeaderTheme';
+import Header from '../componentes/Header/HeaderTheme';
 
 import {ThemeProvider} from 'styled-components';
 
