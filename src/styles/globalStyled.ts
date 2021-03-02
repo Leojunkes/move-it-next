@@ -1,7 +1,11 @@
-* {
+import { createGlobalStyle} from 'styled-components';
+
+export default createGlobalStyle`
+    * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 :root {
   --white: #fff;
@@ -32,8 +36,8 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--text);
+  background: ${props=>props.theme.colors.background};
+  color: ${props=>props.theme.colors.text};
 }
 body,
 input,
@@ -76,3 +80,6 @@ span.current-experience {
   top: 12px;
   transform: translate(-50%);
 }
+
+
+`

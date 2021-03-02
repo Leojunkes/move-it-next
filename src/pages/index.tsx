@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import ExperienceBar from '../componentes/ExperienceBar';
 import { GetServerSideProps } from 'next';
 import { ChallengesProvider } from '../contexts/ChallengeContexts';
@@ -11,8 +11,9 @@ import Head from 'next/head';
 import { ChallengeBox } from '../componentes/ChallengeBox';
 import Header from '../componentes/Header/HeaderTheme';
 
-import {ThemeProvider} from 'styled-components';
 
+import GlobalStyle from '../styles/globalStyled';
+import { ThemeProvider } from 'styled-components';
 
 import light from '../styles/themes/light';
 import dark from '../styles/themes/dark';
@@ -23,40 +24,44 @@ interface HomeProps {
   challengesCompleted: number;
 }
 
-export default function Home(props:HomeProps) {
-  
+export default function Home(props: HomeProps) {
+  const [theme, setTheme] = useState(light);
 
-  const toogleTheme = ()=>{
+  const toogleTheme = () => {
+    setTheme(theme.title === 'light' ? dark:light)
+  };
     
-  }
-  
   return (
-    <ThemeProvider theme={light}>
-    <ChallengesProvider
-      level={props.level}
-      currentExperience={props.currentExperience}
-      challengesCompleted={props.challengesCompleted}
-    >
-      <div className={styles.container}>
-        <Head>
-          <title>Início | move-it</title>
-        </Head>
-        <Header toggleTheme={toogleTheme} />
-        <ExperienceBar />
-        <CountdownProvider>
-          <section>
-            <div>
-              <Profile />
-              <CompletedChalenge />
-              <Countdown />
-            </div>
-            <div>
-              <ChallengeBox />
-            </div>
-          </section>
-        </CountdownProvider>
-      </div>
-    </ChallengesProvider>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle/>
+      <ChallengesProvider
+        level={props.level}
+        currentExperience={props.currentExperience}
+        challengesCompleted={props.challengesCompleted}
+      >
+        <div className={styles.container}>
+        
+          <Head>
+            <title>Início | move-it</title>
+          </Head>
+          <Header toggleTheme={toogleTheme} />
+          <ExperienceBar />
+          <CountdownProvider>
+            <section>
+              <div style={{marginTop:'2rem'}}>
+                <Profile />
+                <CompletedChalenge />
+                <Countdown />
+              </div>
+              <div style={{marginTop:'2rem'}}>
+              
+                <ChallengeBox />
+              </div>
+            </section>
+          </CountdownProvider>
+        </div>
+      </ChallengesProvider>
+      
     </ThemeProvider>
   );
 }

@@ -12,7 +12,7 @@ export function Profile() {
         alt="Leonardo Junkes"
       />
       <div>
-        <strong>Leonardo Junkes</strong>
+        <p style={{fontWeight:600,fontSize:'1.5rem' }}>Leonardo Junkes</p>
 
         <p>
           <img src="icons/level.svg" alt="Level" />

@@ -9,11 +9,11 @@ interface HeaderProps {
 }
 
 export default function Header(props: HeaderProps) {
-  const { colors, title } = useContext(ThemeContext);
+  const {colors, title} = useContext(ThemeContext);
 
   return (
     <Container>
-      <p>Leonardo</p>
+      <p>Move-It</p>
       <div>
         <Switch
           onChange={props.toggleTheme}
@@ -23,6 +23,7 @@ export default function Header(props: HeaderProps) {
           width={40}
           handleDiameter={20}
           onColor={colors.secundary}
+          offColor={colors.primary}
         />
       </div>
     </Container>
