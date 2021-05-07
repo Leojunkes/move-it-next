@@ -1,0 +1,21 @@
+.geralContainer {
+  background: #4953b8;
+  height: 100vh;
+  margin-top: 20px;
+}
+.containerAuth {
+  background: #4953b8;
+  max-width: 1120px;
+  margin: 0 auto;
+
+  height: calc(100vh - 5rem);
+
+  line-height: 4.5rem;
+}
+.containerGithub {
+  color: white;
+  
+  padding-left: 36rem;
+  margin-top: -250px;
+  
+}

@@ -22,7 +22,7 @@ export function Countdown() {
           <span>{minuteLeft}</span>
           <span>{minuteRight}</span>
         </div>
-        <span>:</span>
+        <span style={{color:'var(--blue)'}}>:</span>
         <div>
           <span>{secondLeft}</span>
           <span>{secondRight}</span>

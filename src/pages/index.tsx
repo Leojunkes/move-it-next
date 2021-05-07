@@ -1,78 +1,36 @@
-import React, { useState } from 'react';
-import ExperienceBar from '../componentes/ExperienceBar';
-import { GetServerSideProps } from 'next';
-import { ChallengesProvider } from '../contexts/ChallengeContexts';
-import { Profile } from '../componentes/Profile';
-import styles from '../styles/pages/Home.module.css';
-import { CompletedChalenge } from '../componentes/CompletedChallenges';
-import { Countdown } from '../componentes/Countdown';
-import { CountdownProvider } from '../contexts/CoutndownContext';
-import Head from 'next/head';
-import { ChallengeBox } from '../componentes/ChallengeBox';
-import Header from '../componentes/Header/HeaderTheme';
+import React from 'react';
+import styles from '../styles/pages/Auth.module.css';
+import Link from 'next/link';
 
+import { signIn, signOut, useSession } from 'next-auth/client';
+import { SignInButton } from '../componentes/SignInButton/SignInButton';
 
-import GlobalStyle from '../styles/globalStyled';
-import { ThemeProvider } from 'styled-components';
+// import { Container } from './styles';
 
-import light from '../styles/themes/light';
-import dark from '../styles/themes/dark';
-
-interface HomeProps {
-  level: number;
-  currentExperience: number;
-  challengesCompleted: number;
-}
-
-export default function Home(props: HomeProps) {
-  const [theme, setTheme] = useState(light);
-
-  const toogleTheme = () => {
-    setTheme(theme.title === 'light' ? dark:light)
-  };
-    
+const Auenticacao: React.FC = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle/>
-      <ChallengesProvider
-        level={props.level}
-        currentExperience={props.currentExperience}
-        challengesCompleted={props.challengesCompleted}
-      >
-        <div className={styles.container}>
-        
-          <Head>
-            <title>Início | move-it</title>
-          </Head>
-          <Header toggleTheme={toogleTheme} />
-          <ExperienceBar />
-          <CountdownProvider>
-            <section>
-              <div style={{marginTop:'2rem'}}>
-                <Profile />
-                <CompletedChalenge />
-                <Countdown />
-              </div>
-              <div style={{marginTop:'2rem'}}>
-              
-                <ChallengeBox />
-              </div>
-            </section>
-          </CountdownProvider>
-        </div>
-      </ChallengesProvider>
-      
-    </ThemeProvider>
-  );
-}
+    <main className={styles.geralContainer}>
+      <div className={styles.containerAuth}>
+        <img style={{ height: 500 }} src="images/Simbolo.svg" alt="" />
+        <img
+          style={{ paddingBottom: 280, paddingLeft: 50 }}
+          className="logoImgMoveit"
+          src="images/Logo.svg"
+          alt=""
+        />
+        <div className={styles.containerGithub}>
+          <img className={styles.githubImg} src="images/github.svg" alt="" />
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const { level, currentExperience, challengesCompleted } = ctx.req.cookies;
-  return {
-    props: {
-      level: Number(level),
-      currentExperience: Number(currentExperience),
-      challengesCompleted: Number(challengesCompleted),
-    },
-  };
+          <SignInButton />
+          <Link href="/home">
+            <button type="button">ENTRAR</button>
+          </Link>
+
+          <span>Bem vindo</span>
+        </div>
+      </div>
+    </main>
+  );
 };
+
+export default Auenticacao;

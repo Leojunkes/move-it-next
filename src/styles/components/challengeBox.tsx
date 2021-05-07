@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+    
     .challengeBoxContainer{
-    height: 100%;
+    height: 33rem;
     background: ${props => props.theme.colors.background1};
     color:${props => props.theme.colors.text};
     border-radius: 5px;
@@ -42,7 +43,7 @@ line-height: 1.4;
         flex-direction: column;
     }
     .challengeActive header{
-        color: var(--blue);
+        color: ${props=>props.theme.colors.text};
         font-weight: 600;
         font-size: 1.25rem;
         padding: 0 2rem 1.5rem;
@@ -58,7 +59,7 @@ line-height: 1.4;
     .challengeActive main strong{
         font-size: 2rem;
         font-weight: 600;
-        color: var(--title);
+        color: ${props=>props.theme.colors.text};
         margin: 1.5rem 0 1rem;
     }
     .challengeActive main p{

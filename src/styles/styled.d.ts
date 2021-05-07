@@ -1,3 +1,4 @@
+
 import 'styled-components';
 
 declare module 'styled-components'{
@@ -9,7 +10,10 @@ declare module 'styled-components'{
             secundary:string,
             background:string,
             text:string,
-            background1:string        
+            background1:string,
+            themeTroca:string,
+            icons:any,
         }
     }
 }
+

@@ -1,15 +1,15 @@
-.containerHeaderTheme{
-    background: var(--blue);
-    height: 100%;
-    color: var(--white);
-    
-}
-
-.containerHeaderTheme p{
-    margin: 10px 0 0 15px;
-}
-.switchTheme{
-    position:absolute;
-    right: 15rem;
-    top: 3rem;
+.containerHeader {
+  background: var(--blue);
+  display: flex;
+  width: 3px;
+  flex-direction: column;
+  height: 100%;
+  color: var(--white);
+  border-radius: 5px, 0, 0, 5px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  margin-bottom: 5px;
+  position: absolute;
+  bottom: 0;
 }
