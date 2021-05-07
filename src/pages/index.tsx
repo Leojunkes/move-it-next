@@ -11,7 +11,7 @@ const Auenticacao: React.FC = () => {
   return (
     <main className={styles.geralContainer}>
       <div className={styles.containerAuth}>
-        <img style={{ height: 500 }} src="images/Simbolo.svg" alt="" />
+        <img style={{ height: '35rem' }} src="images/Simbolo.svg" alt="" />
         <img
           style={{ paddingBottom: 280, paddingLeft: 50 }}
           className="logoImgMoveit"
@@ -19,14 +19,30 @@ const Auenticacao: React.FC = () => {
           alt=""
         />
         <div className={styles.containerGithub}>
-          <img className={styles.githubImg} src="images/github.svg" alt="" />
-
-          <SignInButton />
-          <Link href="/home">
-            <button type="button">ENTRAR</button>
-          </Link>
-
           <span>Bem vindo</span>
+          <br />
+
+          <div className={styles.githubLogin}>
+            <img className={styles.githubImg} src="images/github.svg" alt="" />
+            <label htmlFor="">
+              Faça seu login com seu Github <br />{' '}
+              <p className={styles.textComecar}>para começar</p>{' '}
+            </label>
+          </div>
+
+          <div className={styles.signAndButtons}>
+            <SignInButton />
+            <Link href="/home">
+              <button className={styles.buttonSim} type="button">
+                SIM
+              </button>
+            </Link>
+            <Link href="/">
+              <button className={styles.buttonNao} type="button">
+                NÃO
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </main>

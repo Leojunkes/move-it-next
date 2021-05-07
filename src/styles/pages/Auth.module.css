@@ -5,17 +5,45 @@
 }
 .containerAuth {
   background: #4953b8;
-  max-width: 1120px;
-  margin: 0 auto;
 
-  height: calc(100vh - 5rem);
-
-  line-height: 4.5rem;
+ 
 }
 .containerGithub {
   color: white;
-  
-  padding-left: 36rem;
+
+  padding-left: 40rem;
   margin-top: -250px;
+}
+.containerGithub span{
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 20px;
   
 }
+
+.githubLogin{
+  margin-top:50px;
+  display: flex;
+}
+.buttonSim{
+  width:80px;
+  height:40px;
+  background: #4953B8;
+  border-radius: 5px;
+}
+.buttonNao{
+  width:80px;
+  height:40px;
+  background: #4953B8;
+  border-radius: 5px;
+}
+.signAndButtons{
+  margin-top: 20px;
+}
+.buttonNao:hover{
+  background: red;
+}
+.buttonSim:hover{
+  background: green;
+}
+
