@@ -37,7 +37,7 @@ const Auenticacao: React.FC = () => {
                 SIM
               </button>
             </Link>
-            <Link href="/">
+            <Link href="https://www.netflix.com/">
               <button className={styles.buttonNao} type="button">
                 NÃO
               </button>
