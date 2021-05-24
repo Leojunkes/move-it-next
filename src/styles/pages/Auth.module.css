@@ -13,7 +13,7 @@
 .containerGithub {
   color: white;
 
-  padding-left: 40rem;
+  
   margin-top: -250px;
 }
 .containerGithub span{
@@ -50,6 +50,21 @@
 }
 .buttonSim:hover{
   background: green;
+}
+@media (max-width: 880px) {
+  .imagemMoveit {
+    display: none;
+  }
+  .containerGithub{
+    margin: 5px auto;
+    text-align: center;
+  }
+  .githubLogin{
+    margin-left: 250px;
+  }
+  .logoImgMoveit1{
+  margin-top: 200px;
+  }
 }
 
 
