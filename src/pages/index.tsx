@@ -13,7 +13,7 @@ const Auenticacao: React.FC = () => {
       <div className={styles.containerAuth}>
         <img className={styles.imagemMoveit} style={{ height: '35rem' }} src="images/Simbolo.svg" alt="" />
         <img
-          style={{ paddingBottom: 280, paddingLeft: 200, marginTop:50 }}
+          style={{ paddingBottom: 280, paddingLeft: 100, marginTop:50 }}
           className={styles.imagemMoveit1}
           src="images/Logo.svg"
           alt=""
